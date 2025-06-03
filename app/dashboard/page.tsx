@@ -2,6 +2,8 @@ import Hero from "@/components/hero/hero"
 import About from "@/components/about/about"
 import GitHubActivityCalendar from "@/components/component/GitHubActivityCalendar"
 import ContentCarousel from "@/components/component/ContentCarousel"
+import RecentProjects from "@/components/_projects/RecentProjects"
+import CategorizedProjectsViewer from "@/components/portofolio/CategorizedProjectsViewer"
 
 export default function Dashboard(){
     return <>
@@ -11,6 +13,8 @@ export default function Dashboard(){
         {/* <ContentCarousel /> */}
         <div className="h-8"></div>
         <About />
-        <h1>aboutabout</h1>
+        {/* <RecentProjects /> */}
+        <CategorizedProjectsViewer />
+        <div className="h-200"></div>
     </>
 }

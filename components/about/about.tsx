@@ -83,7 +83,7 @@ const About = () => {
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-4 md:mb-12"
           key={titles[activeSlideIndex]}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
