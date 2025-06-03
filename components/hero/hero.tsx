@@ -36,9 +36,9 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-12 lg:gap-x-8 xl:gap-x-12 items-center">
           <div className="lg:col-span-7 xl:col-span-6 text-center lg:text-left">
             <div className="inline-flex items-center bg-white border border-gray-200 rounded-full py-1 pl-4 pr-1.5 text-xs sm:text-sm mb-8 shadow-sm">
-              <span className="text-gray-700 mr-2">0 subscriber have joined</span>
-              <Link href="#" className="inline-flex items-center px-3 py-1 bg-zinc-800 text-white text-xs font-semibold rounded-full hover:bg-zinc-700 transition-colors">
-                Join now <ArrowRightIcon className="w-3 h-3 ml-1.5" />
+              <span data-cursor-trail-ignore="true" className="text-gray-700 mr-2">0 subscriber have joined</span>
+              <Link href="#" data-cursor-trail-ignore="true" className="inline-flex items-center px-3 py-1 bg-zinc-800 text-white text-xs font-semibold rounded-full hover:bg-zinc-700 transition-colors">
+                Join now <ArrowRightIcon data-cursor-trail-ignore="true" className="w-3 h-3 ml-1.5" />
               </Link>
             </div>
             <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-zinc-900 tracking-tight">
@@ -50,14 +50,14 @@ const HeroSection = () => {
               Currently, I serve as the Head of Academic Division at HMIF Unsri, actively leading various skill development programs.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
-              <Link href="#" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-gray-300 text-base font-medium rounded-lg shadow-sm text-gray-800 bg-white hover:bg-zinc-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
-                About Me <ArrowRightIcon className="w-5 h-5 ml-2" />
+              <Link href="#" data-cursor-trail-ignore="true" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-gray-300 text-base font-medium rounded-lg shadow-sm text-gray-800 bg-white hover:bg-zinc-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+                About Me <ArrowRightIcon data-cursor-trail-ignore="true" className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="#" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">
+              <Link href="#" data-cursor-trail-ignore="true" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">
                 Contact
               </Link>
             </div>
-            <div className="mt-12 lg:mt-16 bg-white p-6 rounded-2xl shadow-xl max-w-2xl mx-auto lg:mx-0">
+            <div data-cursor-trail-ignore="true" className="mt-12 lg:mt-16 bg-white p-6 rounded-2xl shadow-xl max-w-2xl mx-auto lg:mx-0">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-4 text-center">
                 <div> <p className="text-2xl sm:text-3xl font-bold text-gray-900">20+</p> <p className="text-xs sm:text-sm text-gray-500 mt-1">Components</p> </div>
                 <div> <p className="text-2xl sm:text-3xl font-bold text-gray-900">10+</p> <p className="text-xs sm:text-sm text-gray-500 mt-1">Pages</p> </div>
@@ -70,6 +70,7 @@ const HeroSection = () => {
           <div className="lg:col-span-5 xl:col-span-6 mt-12 lg:mt-0 flex items-center justify-center">
             <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-md shadow-2xl rounded-lg">
               <Swiper
+                data-cursor-trail-ignore="true"
                 modules={[Navigation, Pagination, A11y, EffectFade]}
                 spaceBetween={0}
                 slidesPerView={1}

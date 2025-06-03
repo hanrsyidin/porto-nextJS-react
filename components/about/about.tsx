@@ -97,7 +97,7 @@ const About = () => {
               className="p-2 rounded-full hover:bg-zinc-300/70 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               aria-label="Previous slide"
             >
-              <ChevronLeftIcon className="w-6 h-6 sm:w-7 sm:h-7 text-zinc-800" />
+              <ChevronLeftIcon data-cursor-trail-ignore="true" className="w-6 h-6 sm:w-7 sm:h-7 text-zinc-800" />
             </button>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight whitespace-nowrap min-w-[180px] sm:min-w-[250px] text-center"> {/* Beri min-width agar layout tidak terlalu geser saat teks judul berubah */}
               {titles[activeSlideIndex]}
@@ -108,7 +108,7 @@ const About = () => {
               className="p-2 rounded-full hover:bg-zinc-300/70 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               aria-label="Next slide"
             >
-              <ChevronRightIcon className="w-6 h-6 sm:w-7 sm:h-7 text-zinc-800" />
+              <ChevronRightIcon data-cursor-trail-ignore="true" className="w-6 h-6 sm:w-7 sm:h-7 text-zinc-800" />
             </button>
           </div>
           <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
@@ -159,6 +159,7 @@ const About = () => {
                 </p>
               </motion.div>
               <motion.div
+                data-cursor-trail-ignore="true"
                 className="lg:col-span-2 mt-10 lg:mt-0 p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg"
                 initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.1 }} variants={staggerContainer} transition={{ delay: 0.2 }}
               >

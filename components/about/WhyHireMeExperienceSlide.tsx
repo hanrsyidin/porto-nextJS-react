@@ -160,7 +160,7 @@ const WhyHireMeExperienceSlide = () => {
               With a combination of technical skills and organizational experience, I am ready to make a real contribution.
             </p>
           </div>
-          <div className="space-y-2">
+          <div data-cursor-trail-ignore="true" className="space-y-2">
             <TabButton label="Skills" isActive={activeTab === 'skills'} onClick={() => setActiveTab('skills')} />
             <TabButton label="Experience" isActive={activeTab === 'experience'} onClick={() => setActiveTab('experience')} />
             <TabButton label="Education" isActive={activeTab === 'education'} onClick={() => setActiveTab('education')} />
@@ -181,7 +181,7 @@ const WhyHireMeExperienceSlide = () => {
             {sectionSubtitles[activeTab]}
           </p>
           
-          <div className="flex-grow overflow-y-auto custom-scrollbar pr-2 max-h-[55vh] sm:max-h-[380px] md:max-h-[420px]">
+          <div data-cursor-trail-ignore="true" className="flex-grow overflow-y-auto custom-scrollbar pr-2 max-h-[55vh] sm:max-h-[380px] md:max-h-[420px]">
             <motion.div
               className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               variants={staggerContainer}
