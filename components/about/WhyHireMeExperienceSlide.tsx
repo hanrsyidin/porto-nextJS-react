@@ -1,10 +1,8 @@
-// app/components/WhyHireMeExperienceSlide.tsx
 'use client';
 
 import React, { useState } from 'react';
-import { motion, Variants } from 'framer-motion'; // Pastikan Variants diimpor
+import { motion, Variants } from 'framer-motion';
 
-// --- DATA (Ganti dengan data Anda sendiri) ---
 interface ExperienceItem {
   year: string;
   title: string;
@@ -23,7 +21,6 @@ interface SkillCategory {
   skills: string[];
 }
 
-// Contoh Data (HARAP GANTI DENGAN DATA ANDA)
 const experiences: ExperienceItem[] = [
   { year: "2024 - 2025", title: "Web Programming Coursework (I & II)", company: "Informatics Engineering, Sriwijaya University", description: "Completed 2 website development projects using CodeIgniter 4 and Laravel 12." },
   { year: "2025 - 2026", title: "Head of Academic Division", company: "Informatics Student Association Unsri 2024", description: "Leading and managing skill and academic development programs for Informatics Engineering students at Sriwijaya University for the year 2025." },
@@ -32,48 +29,45 @@ const experiences: ExperienceItem[] = [
 ];
 
 const educationItems: EducationItem[] = [
-  { year: "2021 - 2025 (Expected)", degree: "Bachelor of Engineering in Informatics", institution: "Sriwijaya University, Palembang", description: "Focusing on software engineering, web development, and data structures." },
-  { year: "2018 - 2021", degree: "Science Program", institution: "SMA Negeri Example, Palembang", description: "Active in science club and programming competitions." },
+  { year: "2023 - 2027 (Expected)", degree: "Bachelor of Engineering in Informatics", institution: "Sriwijaya University, Palembang", description: "Focusing on software engineering, web development, game development, artificial intelligence, and data structures." },
+  { year: "2020 - 2023", degree: "Science Program", institution: "SMA Plus Negeri 17, Palembang", description: "Active in science club and programming competitions." },
 ];
 
 const skillsData: SkillCategory[] = [
-  { id: "backend", name: "Backend Development", skills: ["Laravel", "PHP", "Node.js (Basic)", "RESTful APIs", "MySQL", "PostgreSQL (Basic)"] },
-  { id: "frontend", name: "Frontend Development", skills: ["Next.js", "React", "JavaScript (ES6+)", "Tailwind CSS", "HTML5", "CSS3"] },
+  { id: "backend", name: "Backend Development", skills: ["Laravel", "PHP", "Node.js", "RESTful APIs", "MySQL", "PostgreSQL"] },
+  { id: "frontend", name: "Frontend Development", skills: ["Next.js", "React", "JavaScript (ES6+)", "Tailwind CSS", "HTML5", "CSS3", "Blade"] },
   { id: "gamedev", name: "Game Development", skills: ["Unity", "C#", "Game Design Principles"] },
   { id: "others", name: "Others", skills: ["Git & GitHub", "Problem Solving", "Leadership", "Project Management (Basic)"] },
 ];
 
 
-// Framer Motion Variants
 const fadeInUp: Variants = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
 };
 const staggerContainer: Variants = {
-  initial: {}, // Bisa juga initial: { opacity: 0 } jika ingin container fade in juga
+  initial: {},
   animate: { 
     // opacity: 1, // Jika initial opacity: 0
     transition: { 
-      staggerChildren: 0.1, // Jeda animasi antar anak
-      delayChildren: 0.2    // Delay sebelum anak pertama mulai animasi
+      staggerChildren: 0.1,
+      delayChildren: 0.2
     } 
   },
 };
 const staggerItem: Variants = {
-  initial: { opacity: 0, y: 20 }, // Sebelumnya x: -50, y: 20 lebih cocok untuk item list
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
 };
 
-// Tipe untuk tab
 type TabKey = 'experience' | 'education' | 'skills';
 
-// Komponen Tombol Tab
 const TabButton = ({ label, isActive, onClick }: { label: string, isActive: boolean, onClick: () => void }) => (
   <button
     onClick={onClick}
-    className={`block w-full text-left px-4 py-3 rounded-lg text-sm sm:text-base font-medium shadow-sm transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-opacity-50
+    className={`block w-full ml-1 text-left px-4 py-3 rounded-lg text-sm sm:text-base font-medium shadow-sm transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-opacity-50
       ${isActive
-        ? 'bg-zinc-800 text-white scale-105'
+        ? 'bg-zinc-800 text-white scale-101'
         : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 hover:shadow-md'
       }`
     }
@@ -83,7 +77,7 @@ const TabButton = ({ label, isActive, onClick }: { label: string, isActive: bool
 );
 
 const WhyHireMeExperienceSlide = () => {
-  const [activeTab, setActiveTab] = useState<TabKey>('experience');
+  const [activeTab, setActiveTab] = useState<TabKey>('skills');
 
   const sectionTitles = {
     experience: "My Experience",
@@ -149,17 +143,15 @@ const WhyHireMeExperienceSlide = () => {
 
   return (
     <motion.div 
-        className="md:col-span-4 lg:col-span-3 space-y-6" // (D) Kolom kiri
-        variants={fadeInUp} // <-- TAMBAHKAN VARIANTS DI SINI
-        initial="initial"    // <-- TAMBAHKAN INITIAL
-        animate="animate"    // <-- TAMBAHKAN ANIMATE
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }} // Opsional: delay agar muncul setelah judul utama slide
+        className="md:col-span-4 lg:col-span-3 space-y-6"
+        variants={fadeInUp} 
+        initial="initial" 
+        animate="animate"  
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
     >
       <div className="grid md:grid-cols-12 gap-8 lg:gap-12">
-        {/* Kolom Kiri: Why Hire Me & Navigasi Tab */}
         <motion.div 
           className="md:col-span-4 lg:col-span-3 space-y-6"
-          // Tidak perlu variants di sini jika parent sudah punya fadeInUp dan kita tidak ingin double animation
         >
           <div>
             <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 mb-3">Why hire me?</h3>
@@ -169,17 +161,16 @@ const WhyHireMeExperienceSlide = () => {
             </p>
           </div>
           <div className="space-y-2">
+            <TabButton label="Skills" isActive={activeTab === 'skills'} onClick={() => setActiveTab('skills')} />
             <TabButton label="Experience" isActive={activeTab === 'experience'} onClick={() => setActiveTab('experience')} />
             <TabButton label="Education" isActive={activeTab === 'education'} onClick={() => setActiveTab('education')} />
-            <TabButton label="Skills" isActive={activeTab === 'skills'} onClick={() => setActiveTab('skills')} />
           </div>
         </motion.div>
 
-        {/* Kolom Kanan: Konten Dinamis (Experience, Education, Skills) */}
         <motion.div
-          key={activeTab} // Ganti key saat tab berubah untuk memicu animasi ulang konten
+          key={activeTab}
           className="md:col-span-8 lg:col-span-9 flex flex-col"
-          initial={{ opacity: 0, y: 10 }} // Animasi sederhana untuk blok konten kanan
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
@@ -190,11 +181,10 @@ const WhyHireMeExperienceSlide = () => {
             {sectionSubtitles[activeTab]}
           </p>
           
-          {/* Area Konten yang Bisa di-Scroll */}
           <div className="flex-grow overflow-y-auto custom-scrollbar pr-2 max-h-[55vh] sm:max-h-[380px] md:max-h-[420px]">
             <motion.div
               className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-              variants={staggerContainer} // Stagger untuk kartu-kartu di dalamnya
+              variants={staggerContainer}
               initial="initial"
               animate="animate"
             >

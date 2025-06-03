@@ -32,7 +32,7 @@ const HeroSection = () => {
 
   return (
     <section className="overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-8 bg-zinc-200/50 rounded-3xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-8 bg-zinc-200/50 rounded-3xl backdrop-blur-xs">
         <div className="grid lg:grid-cols-12 lg:gap-x-8 xl:gap-x-12 items-center">
           <div className="lg:col-span-7 xl:col-span-6 text-center lg:text-left">
             <div className="inline-flex items-center bg-white border border-gray-200 rounded-full py-1 pl-4 pr-1.5 text-xs sm:text-sm mb-8 shadow-sm">

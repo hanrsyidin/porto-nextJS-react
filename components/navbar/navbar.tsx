@@ -41,7 +41,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex gap-[30px]">
             <Link href="/" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Home</Link>
-            <Link href="#about" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">About</Link>
+            <Link href="#about-resume-section" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">About</Link>
             <Link href="#portfolio" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Portfolio</Link>
             <Link href="#contact" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Contact</Link>
             <Link href="#comments" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Comments</Link>
