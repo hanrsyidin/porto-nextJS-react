@@ -11,7 +11,7 @@ interface ApiResponse {
 
 const gitHubDarkTheme: ThemeInput = {
   light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'], // Level 0-4 untuk light mode
-  dark: ['#161b22', '#01311F', '#034829', '#026E3E', '#009A56'], // Level 0-4 untuk dark mode
+  dark: ['#e0e0e0', '#9be9a8', '#40c463', '#30a14e', '#216e39'], // Level 0-4 untuk dark mode : ['#161b22', '#01311F', '#034829', '#026E3E', '#009A56']
                                                                         // Atau GitHub klasik: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
 };
 
