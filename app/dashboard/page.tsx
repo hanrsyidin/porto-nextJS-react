@@ -5,11 +5,12 @@ import ContentCarousel from "@/components/component/ContentCarousel"
 
 export default function Dashboard(){
     return <>
+        <div className="h-6"></div>
         <Hero />
         {/* <GitHubActivityCalendar /> */}
         {/* <ContentCarousel /> */}
+        <div className="h-8"></div>
         <About />
         <h1>aboutabout</h1>
-        <div className="h-960"></div>
     </>
 }

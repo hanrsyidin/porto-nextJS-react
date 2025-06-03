@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Styling Scrollbar untuk Webkit (Chrome, Safari, Edge baru) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Lebar scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(212, 212, 216, 0.2); /* Warna track (zinc-300 dengan opasitas) */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #52525b; /* Warna thumb (zinc-600) */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46; /* Warna thumb saat hover (zinc-700) */
+}
+
+/* Styling Scrollbar untuk Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #52525b rgba(212, 212, 216, 0.2); /* warna thumb warna track */
+}
