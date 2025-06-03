@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
+
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,6 +26,16 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const NavLinkItem = ({ href, children }: { href: string, children: React.ReactNode }) => {
+    return (
+      <Link href={href} className="relative group no-underline text-[#494d51] text-base py-[5px] transition-colors duration-200 hover:text-zinc-900">
+        <span>{children}</span>
+        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-zinc-800 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
+      </Link>
+    );
+  };
+
+
   return (
     <>
       <nav
@@ -39,12 +49,12 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden md:flex gap-[30px]">
-            <Link href="/" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Home</Link>
-            <Link href="#about-resume-section" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">About</Link>
-            <Link href="#portfolio" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Portfolio</Link>
-            <Link href="#contact" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Contact</Link>
-            <Link href="#comments" className="no-underline text-[#494d51] text-base py-[5px] hover:text-opacity-75 transition-opacity">Comments</Link>
+          <div className="hidden md:flex items-center gap-[30px]">
+            <NavLinkItem href="/">Home</NavLinkItem>
+            <NavLinkItem href="#about-resume-section">About</NavLinkItem>
+            <NavLinkItem href="#portfolio">Portfolio</NavLinkItem>
+            <NavLinkItem href="#contact">Contact</NavLinkItem>
+            <NavLinkItem href="#comments">Comments</NavLinkItem>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -55,7 +65,7 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden flex items-center">
-            <button
+             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -81,11 +91,10 @@ export default function Navbar() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-start gap-4">
               <Link href="/" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-              <Link href="#about" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+              <Link href="#about-resume-section" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
               <Link href="#portfolio" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
               <Link href="#contact" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
               <Link href="#comments" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>Comments</Link>
-              
               <div className="flex items-center gap-3 mt-4 pt-4 border-t border-gray-200 w-full">
                 <span className="text-xl text-[#494d51] leading-none">♦</span>
                 <span className="text-sm text-[#494d51]">Portofolio, {todaysDateInJakarta}</span>
