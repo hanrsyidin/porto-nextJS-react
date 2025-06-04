@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import type SwiperCore from 'swiper';
 import { Navigation, Pagination, A11y, EffectFade } from 'swiper/modules';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import WhyHireMeExperienceSlide from './WhyHireMeExperienceSlide';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -20,8 +21,6 @@ const SkillBadge = ({ skill }: { skill: string }) => (
     {skill}
   </motion.span>
 );
-
-import WhyHireMeExperienceSlide from './WhyHireMeExperienceSlide';
 
 const fadeInUp: Variants = {
   initial: { opacity: 0, y: 50 },
@@ -79,7 +78,7 @@ const About = () => {
   return (
     <section
       id="about-resume-section"
-      className="py-16 md:py-24 shadow-sm bg-[url('/paper-background.png')] bg-cover bg-center relative"
+      className="py-16 md:py-24 shadow-sm bg-[url('/paper-background.png')] bg-cover bg-center relative scroll-mt-[20px] sm:scroll-mt-0"
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-10">
         <motion.div

@@ -34,7 +34,7 @@ const educationItems: EducationItem[] = [
 ];
 
 const skillsData: SkillCategory[] = [
-  { id: "backend", name: "Backend Development", skills: ["Laravel", "PHP", "Node.js", "RESTful APIs", "MySQL", "PostgreSQL", "MongoDB", "Supabase", "Firebase"] },
+  { id: "backend", name: "Backend Development", skills: ["Laravel", "CodeIgniter", "PHP", "Node.js", "RESTful APIs", "MySQL", "PostgreSQL", "MongoDB", "Supabase", "Firebase"] },
   { id: "frontend", name: "Frontend Development", skills: ["Next.js", "React", "JavaScript (ES6+)", "Tailwind CSS", "HTML5", "CSS3", "Blade"] },
   { id: "gamedev", name: "Game Development", skills: ["Unity", "C#", "Game Design Principles"] },
   { id: "others", name: "Others", skills: ["Git & GitHub", "Problem Solving", "Leadership", "Project Management (Basic)"] },

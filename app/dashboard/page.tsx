@@ -7,7 +7,7 @@ import CategorizedProjectsViewer from "@/components/portofolio/CategorizedProjec
 
 export default function Dashboard(){
     return <>
-        <div className="h-6"></div>
+        <div className="h-8"></div>
         <Hero />
         {/* <GitHubActivityCalendar /> */}
         {/* <ContentCarousel /> */}

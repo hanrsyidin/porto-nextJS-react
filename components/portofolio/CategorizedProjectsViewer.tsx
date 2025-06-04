@@ -4,79 +4,11 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaLink, FaGithub, FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Project, projectsData, categories } from './projectsData';
+import { projectContentVariants, fadeInUp } from './animation';
 
-interface Project {
-  id: string | number;
-  title: string;
-  category: 'web' | 'mobile' | 'game';
-  description: string;
-  technologies: string[];
-  image: string;
-  liveLink?: string;
-  githubLink?: string;
-}
-
-const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "FurniShop - E-commerce Furniture",
-    category: 'web',
-    description: "Modern e-commerce platform for furniture sales, built with Next.js and Tailwind CSS for an optimal user experience.",
-    technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    image: "/projects/furnishop-hero.jpg",
-    liveLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 2,
-    title: "Kids Educational Mobile App",
-    category: 'mobile',
-    description: "Interactive mobile application for early childhood learning, equipped with gamification.",
-    technologies: ["React Native", "Firebase"],
-    image: "/projects/mobile-edu.jpg",
-    liveLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 3,
-    title: "Space Adventure Game",
-    category: 'game',
-    description: "An engaging 2D space adventure game developed with Unity, featuring various levels and challenges.",
-    technologies: ["Unity", "C#"],
-    image: "/projects/space-game.jpg",
-    githubLink: "#",
-  },
-  {
-    id: 4,
-    title: "Personal Portfolio Website (This!)",
-    category: 'web',
-    description: "The personal portfolio website you are currently viewing, built to showcase my projects and skills.",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-    image: "/projects/portfolio-website.jpg",
-    githubLink: "https://github.com/hanrsyidin/portfolio-next",
-  },
-];
-
-const categories: { key: Project['category']; label: string }[] = [
-  { key: 'web', label: 'Web Development' },
-  { key: 'mobile', label: 'Mobile Apps' },
-  { key: 'game', label: 'Game Projects' },
-];
-
-// Varian animasi Framer Motion
-const projectContentVariants: Variants = {
-  initial: { opacity: 0, x: 30, scale: 0.98 },
-  animate: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.4, ease: "easeOut" } },
-  exit: { opacity: 0, x: -30, scale: 0.98, transition: { duration: 0.3, ease: "easeIn" } },
-};
-const fadeInUp: Variants = { 
-  initial: { opacity: 0, y: 40 }, 
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" }}
-};
-
-
-const CategorizedProjectsViewer = () => {
+export default function CategorizedProjectsViewer() {
   const [activeCategory, setActiveCategory] = useState<Project['category']>('web');
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
@@ -108,7 +40,7 @@ const CategorizedProjectsViewer = () => {
   return (
     <section 
         id="portfolio" 
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-8 bg-zinc-200/50 rounded-3xl backdrop-blur-sm mt-12 mb-12"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 lg:py-8 bg-zinc-200/50 rounded-3xl backdrop-blur-sm mt-12 mb-12 scroll-mt-[90px] md:scroll-mt-[100px]"
     >
       <motion.div
         className="text-center mb-4 md:mb-8"
@@ -130,6 +62,7 @@ const CategorizedProjectsViewer = () => {
 
       <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
         <motion.div 
+          data-cursor-trail-ignore="true"
           className="md:w-1/4 lg:w-1/5 space-y-3 lg:mt-12 md:self-start" 
           initial={{ opacity:0, x: -50 }}
           whileInView={{ opacity:1, x: 0 }}
@@ -173,7 +106,7 @@ const CategorizedProjectsViewer = () => {
                   </p>
                   <div className="mb-4 md:mb-6">
                     <h4 className="text-sm font-semibold text-zinc-600 mb-2">Technologies Used:</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div data-cursor-trail-ignore="true" className="flex flex-wrap gap-2">
                       {currentProject.technologies.map(tech => (
                         <span key={tech} className="bg-zinc-200 text-zinc-800 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">{tech}</span>
                       ))}
@@ -181,12 +114,12 @@ const CategorizedProjectsViewer = () => {
                   </div>
                   <div className="flex items-center gap-4 pt-1">
                     {currentProject.liveLink && (
-                      <Link href={currentProject.liveLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 transition-colors">
+                      <Link href={currentProject.liveLink} data-cursor-trail-ignore="true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 transition-colors">
                          <FaLink className="mr-2"/> Live Site
                       </Link>
                     )}
                     {currentProject.githubLink && (
-                      <Link href={currentProject.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-zinc-600 hover:text-zinc-900 transition-colors font-medium">
+                      <Link href={currentProject.githubLink}data-cursor-trail-ignore="true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-zinc-600 hover:text-zinc-900 transition-colors font-medium">
                          <FaGithub className="mr-2 h-5 w-5"/> GitHub
                       </Link>
                     )}
@@ -194,7 +127,8 @@ const CategorizedProjectsViewer = () => {
                 </div>
 
                 <motion.div 
-                  className="w-full aspect-[16/10] md:aspect-[4/3] lg:aspect-[16/10] relative rounded-lg overflow-hidden shadow-xl order-1 md:order-2 group"
+                  data-cursor-trail-ignore="true"
+                  className="w-full aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9] relative rounded-lg overflow-hidden shadow-xl order-1 md:order-2 group"
                   initial={{ scale: 0.95, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 0.4 }}
@@ -221,12 +155,12 @@ const CategorizedProjectsViewer = () => {
                 </svg>
                 <p className="text-gray-500 text-lg">
                   {displayedProjects.length === 0 && activeCategory 
-                    ? `Belum ada proyek di kategori "${categories.find(c => c.key === activeCategory)?.label.toLowerCase()}" nih.`
+                    ? `There's no project in the "${categories.find(c => c.key === activeCategory)?.label.toLowerCase()}" category yet`
                     : "Pilih kategori untuk melihat proyek."
                   }
                 </p>
                 {displayedProjects.length === 0 && activeCategory && (
-                  <p className="text-sm text-gray-400 mt-2">Coba cek kategori lainnya ya!</p>
+                  <p className="text-sm text-gray-400 mt-2">Explore other categories!</p>
                 )}
               </motion.div>
             )}
@@ -236,6 +170,7 @@ const CategorizedProjectsViewer = () => {
             <div className="flex justify-end gap-3">
               <button 
                 onClick={handlePrevProject} 
+                data-cursor-trail-ignore="true"
                 className="p-2.5 rounded-full bg-white/60 hover:bg-zinc-200/80 shadow-md backdrop-blur-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed" 
                 aria-label="Previous project"
                 disabled={displayedProjects.length <= 1}
@@ -244,6 +179,7 @@ const CategorizedProjectsViewer = () => {
               </button>
               <button 
                 onClick={handleNextProject} 
+                data-cursor-trail-ignore="true"
                 className="p-2.5 rounded-full bg-white/60 hover:bg-zinc-200/80 shadow-md backdrop-blur-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed" 
                 aria-label="Next project"
                 disabled={displayedProjects.length <= 1}
@@ -257,5 +193,3 @@ const CategorizedProjectsViewer = () => {
     </section>
   );
 };
-
-export default CategorizedProjectsViewer;
