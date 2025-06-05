@@ -4,6 +4,7 @@ import GitHubActivityCalendar from "@/components/component/GitHubActivityCalenda
 import ContentCarousel from "@/components/component/ContentCarousel"
 import RecentProjects from "@/components/_projects/RecentProjects"
 import CategorizedProjectsViewer from "@/components/portofolio/CategorizedProjectsViewer"
+import ContactSection from "@/components/contact/ContactSection"
 
 export default function Dashboard(){
     return <>
@@ -15,6 +16,8 @@ export default function Dashboard(){
         <About />
         {/* <RecentProjects /> */}
         <CategorizedProjectsViewer />
+        <div className="h-8"></div>
+        <ContactSection />
         <div className="h-200"></div>
     </>
 }
