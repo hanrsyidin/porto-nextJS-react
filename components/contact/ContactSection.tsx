@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { FaTwitter, FaFacebookF, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 import { IoIosSend } from "react-icons/io";
@@ -25,16 +25,47 @@ const staggerContainer: Variants = {
   },
 };
 
-
 const ContactSection = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ success: boolean | null, message: string | null }>({ success: null, message: null });
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ success: null, message: null });
+
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    console.log("Form submitted:", data);
-    alert("Message sent (simulated)!");
-    event.currentTarget.reset();
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong');
+      }
+
+      setSubmitStatus({ success: true, message: 'Message sent successfully! Thank you.' });
+      if (formRef.current) {
+        formRef.current.reset();
+      }
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      setSubmitStatus({ success: false, message: error.message || 'Failed to send message. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <section id="contact" className="py-12 md:py-16 bg-[#fbfbfb]/80 backdrop-blur-sm">
@@ -80,23 +111,24 @@ const ContactSection = () => {
               </li>
             </ul>
             <div className="flex space-x-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
+              <a href="#" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
                 <FaTwitter className="w-5 h-5" />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
+              <a href="#" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
                 <FaFacebookF className="w-5 h-5" />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
+              <a href="#" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
                 <FaInstagram className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
+            data-cursor-trail-ignore="true" 
             className="md:col-span-7 lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl shadow-xl"
             initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }} variants={fadeInUp} transition={{delay: 0.4}}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -114,12 +146,19 @@ const ContactSection = () => {
               <div>
                 <button 
                   type="submit"
-                  className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 transition-colors disabled:opacity-50"
                 >
-                  Send Message <IoIosSend className="ml-2 w-5 h-5" />
+                  {isSubmitting ? 'Sending...' : 'Send Message'} 
+                  {!isSubmitting && <IoIosSend className="ml-2 w-5 h-5" />}
                 </button>
               </div>
             </form>
+            {submitStatus.message && (
+              <p className={`mt-4 text-sm text-center ${submitStatus.success ? 'text-green-600' : 'text-red-600'}`}>
+                {submitStatus.message}
+              </p>
+            )}
           </motion.div>
         </div>
 
@@ -137,6 +176,7 @@ const ContactSection = () => {
               href={item.href}
               target={item.href.startsWith("mailto:") || item.href.startsWith("tel:") ? "_self" : "_blank"}
               rel="noopener noreferrer"
+              data-cursor-trail-ignore="true"
               className="block bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1"
               variants={staggerItem}
             >
