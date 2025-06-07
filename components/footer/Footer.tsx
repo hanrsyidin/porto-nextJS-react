@@ -49,7 +49,7 @@ const Footer = () => {
           <p className="mt-1">
             Built with <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer" className="hover:text-white underline underline-offset-2">Next.js</a>, 
             <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white underline underline-offset-2 ml-1">Tailwind CSS</a>, 
-            and a lot of <span className="text-red-500">❤</span>.
+            and a lot of <span className="text-red-500"></span>.
           </p>
         </div>
       </div>
