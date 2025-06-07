@@ -2,19 +2,25 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [clientFormattedDate, setClientFormattedDate] = useState<string>('');
 
-  const now = new Date();
-  const dateFormatOptions: Intl.DateTimeFormatOptions = {
-    day: 'numeric',
-    month: 'short',
-    year: '2-digit',
-    timeZone: 'Asia/Jakarta',
-  };
-  const dateFormatter = new Intl.DateTimeFormat('en-GB', dateFormatOptions);
-  const todaysDateInJakarta = dateFormatter.format(now);
+
+  useEffect(() => {
+    const now = new Date();
+    const dateFormatOptions: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'short',
+      year: '2-digit',
+      timeZone: 'Asia/Jakarta',
+    };
+    const dateFormatter = new Intl.DateTimeFormat('en-GB', dateFormatOptions);
+    const todaysDateInJakarta = dateFormatter.format(now);
+    
+    setClientFormattedDate(todaysDateInJakarta);
+
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,7 +65,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-3">
             <span className="text-[28px] text-[#494d51] leading-none">♦</span>
-            <span className="text-[15px] text-[#494d51]">Portofolio, {todaysDateInJakarta}</span>
+            <span className="text-[15px] text-[#494d51]">Portofolio, {clientFormattedDate}</span>
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#494d51] to-[#fbfbfb]">
             </div>
           </div>
@@ -97,7 +103,7 @@ export default function Navbar() {
               <Link href="#comments" className="no-underline text-[#494d51] text-lg w-full py-2 hover:bg-gray-100 rounded" onClick={() => setIsMobileMenuOpen(false)}>Comments</Link>
               <div className="flex items-center gap-3 mt-4 pt-4 border-t border-gray-200 w-full">
                 <span className="text-xl text-[#494d51] leading-none">♦</span>
-                <span className="text-sm text-[#494d51]">Portofolio, {todaysDateInJakarta}</span>
+                <span className="text-sm text-[#494d51]">Portofolio, {clientFormattedDate}</span>
               </div>
             </div>
           </div>

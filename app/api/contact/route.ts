@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       from: 'onboarding@resend.dev',
       to: 'aan.syidin@gmail.com',
       subject: `New Message from Portfolio Contact Form - ${name}`,
-      replyTo: email, // Email pengirim pesan untuk mudah membalas
+      replyTo: email,
       html: `
         <p>You have a new message from your portfolio contact form:</p>
         <p><strong>Name:</strong> ${name}</p>

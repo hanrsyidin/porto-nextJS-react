@@ -88,7 +88,7 @@ const ContactSection = () => {
             className="md:col-span-5 lg:col-span-5 space-y-8"
             initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }} variants={fadeInUp} transition={{delay: 0.2}}
           >
-            <h2 className="text-sm font-semibold text-zinc-600 tracking-wide uppercase mb-2">
+            <h2 className="text-3xl font-semibold text-zinc-600 tracking-wide uppercase mb-2">
             Reach out <span className="inline-block transform translate-y-[-2px] rotate-45">↗</span>
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">

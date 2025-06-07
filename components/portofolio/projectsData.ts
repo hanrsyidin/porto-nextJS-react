@@ -68,7 +68,7 @@ export const projectsData: Project[] = [
   },
     {
     id: 7,
-    title: "Islam Pedia",
+    title: "IslamPedia",
     category: 'web',
     description: "Islam Pedia is a web-based platform that provides Islamic content and information, such as articles, prayers, teachings, and history, aimed at educating and inspiring users about Islam.",
     technologies: ["CodeIgniter 4", "PHP", "CSS", "JavaScript"],

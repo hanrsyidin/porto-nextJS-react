@@ -15,7 +15,7 @@ interface Shape {
   dRotation?: number;
 }
 
-const NUM_SHAPES = 20;
+const NUM_SHAPES = 15;
 const SHAPE_TYPES: Shape['type'][] = ['circle', 'square', 'triangle', 'hexagon'];
 const COLORS = ['#494d51', '#494d51', '#494d51', '#494d51', '#494d51', '#494d51', '#494d51'];
 

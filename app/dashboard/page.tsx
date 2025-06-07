@@ -5,6 +5,7 @@ import ContentCarousel from "@/components/component/ContentCarousel"
 import RecentProjects from "@/components/_projects/RecentProjects"
 import CategorizedProjectsViewer from "@/components/portofolio/CategorizedProjectsViewer"
 import ContactSection from "@/components/contact/ContactSection"
+import CommentsSection from "@/components/comments/CommentSection"
 
 export default function Dashboard(){
     return <>
@@ -18,6 +19,6 @@ export default function Dashboard(){
         <CategorizedProjectsViewer />
         <div className="h-8"></div>
         <ContactSection />
-        <div className="h-200"></div>
+        <CommentsSection />
     </>
 }
