@@ -173,11 +173,15 @@ const About = () => {
                   <h4 className="text-lg font-medium text-zinc-700 mb-2">Backend Development</h4>
                   <div className="flex flex-wrap">
                     <SkillBadge skill="Laravel" />
+                    <SkillBadge skill="CodeIgniter" />
                     <SkillBadge skill="PHP" />
-                    <SkillBadge skill="Node.js (Basic)" />
+                    <SkillBadge skill="Node.js" />
                     <SkillBadge skill="RESTful APIs" />
                     <SkillBadge skill="MySQL" />
-                    <SkillBadge skill="PostgreSQL (Basic)" />
+                    <SkillBadge skill="PostgreSQL" />
+                    <SkillBadge skill="MongoDB" />
+                    <SkillBadge skill="Supabase" />
+                    <SkillBadge skill="Firebase" />
                   </div>
                 </motion.div>
 
@@ -208,7 +212,7 @@ const About = () => {
                     <SkillBadge skill="Git & GitHub" />
                     <SkillBadge skill="Problem Solving" />
                     <SkillBadge skill="Leadership" />
-                    <SkillBadge skill="Project Management (Basic)" />
+                    <SkillBadge skill="Project Management" />
                   </div>
                 </motion.div>
               </motion.div>
