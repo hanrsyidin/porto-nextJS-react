@@ -1,24 +1,22 @@
-// app/api/comments/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb'; // Pastikan path ke lib/mongodb.ts benar, @/ adalah alias untuk root
+import clientPromise from '@/lib/mongodb';
 
-// Fungsi untuk mendapatkan koleksi 'comments' dari database 'portfolio'
 async function getCommentsCollection() {
   const client = await clientPromise;
-  const db = client.db('portfolioCluster'); // Ganti 'portfolio' jika Anda menggunakan nama database lain
-  return db.collection('comments'); // Nama collection adalah 'comments'
+  const db = client.db('portfolioCluster');
+  return db.collection('comments');
 }
 
 /**
  * @method GET
- * @description Mengambil semua komentar dari database, diurutkan dari yang terbaru.
+ * @description
  */
 export async function GET() {
   try {
     const commentsCollection = await getCommentsCollection();
     const comments = await commentsCollection
       .find({})
-      .sort({ timestamp: -1 }) // -1 untuk descending (terbaru dulu)
+      .sort({ timestamp: -1 })
       .toArray();
     return NextResponse.json(comments, { status: 200 });
   } catch (error) {
@@ -29,13 +27,12 @@ export async function GET() {
 
 /**
  * @method POST
- * @description Menyimpan komentar baru ke database.
+ * @description
  */
 export async function POST(request: NextRequest) {
   try {
     const { name, message } = await request.json();
 
-    // Validasi sederhana
     if (!name || !message || typeof name !== 'string' || typeof message !== 'string') {
       return NextResponse.json({ error: 'Nama dan pesan harus diisi.' }, { status: 400 });
     }
@@ -50,7 +47,6 @@ export async function POST(request: NextRequest) {
 
     const result = await commentsCollection.insertOne(newComment);
 
-    // Mengembalikan komentar yang baru dibuat beserta ID-nya
     return NextResponse.json({ ...newComment, _id: result.insertedId }, { status: 201 });
 
   } catch (error) {

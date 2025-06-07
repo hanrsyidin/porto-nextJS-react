@@ -1,15 +1,13 @@
-// app/components/CommentsSection.tsx
 'use client';
 
 import React, { useState, useEffect, FormEvent } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { IoIosSend } from 'react-icons/io';
 
-// Interface untuk struktur data komentar (termasuk _id dari MongoDB)
 interface CommentEntry {
-  _id: string; // MongoDB ID akan menjadi string saat dikirim sebagai JSON
+  _id: string;
   name: string;
-  timestamp: string; // Tanggal akan menjadi string saat dikirim sebagai JSON
+  timestamp: string;
   message: string;
 }
 
@@ -39,13 +37,11 @@ const CommentsSection = () => {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   
-  // State untuk loading, error, dan status submit
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
 
-  // Mengambil komentar dari API saat komponen pertama kali dimuat
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -64,9 +60,8 @@ const CommentsSection = () => {
     };
 
     fetchComments();
-  }, []); // Dependensi kosong agar hanya berjalan sekali
+  }, []);
 
-  // Fungsi untuk mengirim komentar ke API
   const handleSubmitComment = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!name.trim() || !message.trim()) {
@@ -93,10 +88,8 @@ const CommentsSection = () => {
 
       const newComment: CommentEntry = await response.json();
       
-      // Tambahkan komentar baru di atas daftar komentar untuk update UI instan
       setComments(prevComments => [newComment, ...prevComments]);
       
-      // Reset form dan tampilkan pesan sukses
       setName('');
       setMessage('');
       setSubmitMessage('Comment submitted successfully!');
@@ -122,7 +115,7 @@ const CommentsSection = () => {
     }
     return comments.map((comment) => (
       <motion.div 
-        key={comment._id} // Gunakan _id dari MongoDB sebagai key
+        key={comment._id}
         className="bg-white p-4 sm:p-5 rounded-lg shadow-md border border-gray-200"
         variants={staggerItem}
         initial="initial" animate="animate"
