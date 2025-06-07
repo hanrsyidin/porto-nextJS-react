@@ -128,20 +128,20 @@ const ContactSection = () => {
             className="md:col-span-7 lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl shadow-xl"
             initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }} variants={fadeInUp} transition={{delay: 0.4}}
           >
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <input type="text" name="name" id="name" required className="w-full px-4 py-3 border border-zinc-300 rounded-xl shadow-sm focus:ring-zinc-500 focus:border-zinc-500 transition-colors bg-zinc-50 focus:bg-white" />
+                  {/* <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label> */}
+                  <input type="text" name="name" id="name" required placeholder="Your name" className="w-full px-4 py-3 border border-zinc-300 rounded-xl shadow-sm focus:ring-zinc-500 focus:border-zinc-500 transition-colors bg-zinc-50 focus:bg-white" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input type="email" name="email" id="email" required className="w-full px-4 py-3 border border-zinc-300 rounded-xl shadow-sm focus:ring-zinc-500 focus:border-zinc-500 transition-colors bg-zinc-50 focus:bg-white" />
+                  {/* <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label> */}
+                  <input type="email" name="email" id="email" required placeholder="Your email" className="w-full px-4 py-3 border border-zinc-300 rounded-xl shadow-sm focus:ring-zinc-500 focus:border-zinc-500 transition-colors bg-zinc-50 focus:bg-white" />
                 </div>
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea name="message" id="message" rows={5} required className="w-full px-4 py-3 border border-zinc-300 rounded-xl shadow-sm focus:ring-zinc-500 focus:border-zinc-500 transition-colors bg-zinc-50 focus:bg-white"></textarea>
+                {/* <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label> */}
+                <textarea name="message" id="message" rows={5} required placeholder="Write your message in here..." className="w-full px-4 py-3 border border-zinc-300 rounded-xl shadow-sm focus:ring-zinc-500 focus:border-zinc-500 transition-colors bg-zinc-50 focus:bg-white"></textarea>
               </div>
               <div>
                 <button 

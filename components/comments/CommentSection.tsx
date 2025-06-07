@@ -145,7 +145,7 @@ const CommentsSection = () => {
 
 
   return (
-    <section id="comments" className="py-16 md:py-24 bg-slate-100">
+    <section id="comments" className="py-16 md:py-24 bg-[#fbfbfb]/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-12 md:mb-16" initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.3 }} variants={fadeInUp}>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight">
@@ -163,11 +163,11 @@ const CommentsSection = () => {
           className="max-w-2xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-xl mb-12"
           initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.3 }} variants={fadeInUp} transition={{ delay: 0.2 }}
         >
-          <form onSubmit={handleSubmitComment} className="space-y-6">
+          <form onSubmit={handleSubmitComment} className="space-y-2">
             <div>
-              <label htmlFor="commenter-name" className="block text-sm font-medium text-gray-700 mb-1">
+              {/* <label htmlFor="commenter-name" className="block text-sm font-medium text-gray-700 mb-1">
                 Name <span className="text-red-500">*</span>
-              </label>
+              </label> */}
               <input
                 type="text" name="commenter-name" id="commenter-name" value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -177,9 +177,9 @@ const CommentsSection = () => {
               />
             </div>
             <div>
-              <label htmlFor="comment-message" className="block text-sm font-medium text-gray-700 mb-1">
+              {/* <label htmlFor="comment-message" className="block text-sm font-medium text-gray-700 mb-1">
                 Comment <span className="text-red-500">*</span>
-              </label>
+              </label> */}
               <textarea
                 name="comment-message" id="comment-message" rows={4} value={message}
                 onChange={(e) => setMessage(e.target.value)}

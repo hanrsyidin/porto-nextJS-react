@@ -44,7 +44,7 @@ export const projectsData: Project[] = [
     title: "Personal Portfolio Website",
     category: 'web',
     description: "The personal portfolio website you are currently viewing, built to showcase my projects and skills.",
-    technologies: ["React Native", "Tailwind CSS", "Framer Motion", "TypeScript"],
+    technologies: ["React Native", "Tailwind CSS", "Framer Motion", "TypeScript", "MongoDB"],
     image: "/web2.png",
     githubLink: "https://github.com/hanrsyidin/porto-nextJS-react",
   },
