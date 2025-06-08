@@ -4,26 +4,7 @@ import React, { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { FaTwitter, FaFacebookF, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 import { IoIosSend } from "react-icons/io";
-
-const fadeInUp: Variants = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const staggerItem: Variants = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-const staggerContainer: Variants = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
+import { fadeInUp, staggerContainer, staggerItem } from './animation';
 
 const ContactSection = () => {
   const formRef = React.useRef<HTMLFormElement>(null);

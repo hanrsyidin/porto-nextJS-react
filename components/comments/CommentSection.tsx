@@ -3,31 +3,8 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { IoIosSend } from 'react-icons/io';
-
-interface CommentEntry {
-  _id: string;
-  name: string;
-  timestamp: string;
-  message: string;
-}
-
-const fadeInUp: Variants = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-const staggerContainer: Variants = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-const staggerItem: Variants = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+import { fadeInUp, staggerContainer, staggerItem } from './animation';
+import { CommentEntry } from './interface';
 
 const CommentsSection = () => {
   const [comments, setComments] = useState<CommentEntry[]>([]);

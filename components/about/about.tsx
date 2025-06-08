@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type SwiperCore from 'swiper';
 import { Navigation, Pagination, A11y, EffectFade } from 'swiper/modules';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import WhyHireMeExperienceSlide from './WhyHireMeExperienceSlide';
+import { fadeInUp, staggerContainer, staggerItem } from './animation';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -21,27 +22,6 @@ const SkillBadge = ({ skill }: { skill: string }) => (
     {skill}
   </motion.span>
 );
-
-const fadeInUp: Variants = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -50 } // Opsional: animasi saat keluar
-};
-const staggerContainer: Variants = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-const staggerItem: Variants = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -30 }
-};
-
 
 const About = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperCore | null>(null);
