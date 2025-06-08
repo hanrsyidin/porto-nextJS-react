@@ -1,5 +1,3 @@
-// app/components/SubscribeModal.tsx
-// ... (import dan kode lainnya tetap sama) ...
 'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
@@ -31,28 +29,24 @@ export default function SubscribeModal({ isOpen, onClose }: SubscribeModalProps)
       const result = await response.json();
 
       if (!response.ok) {
-        // Jika respons tidak OK, lempar error dengan pesan dari API
         throw new Error(result.error || 'Something went wrong.');
       }
       
-      // Jika berhasil
       setSubmitMessage({ type: 'success', text: 'Thank you for subscribing!' });
       setIsSubmitting(false);
 
       setTimeout(() => {
         setEmail('');
         onClose();
-        setTimeout(() => setSubmitMessage({ type: '', text: '' }), 500); // Reset pesan setelah modal tertutup
+        setTimeout(() => setSubmitMessage({ type: '', text: '' }), 500);
       }, 2000);
 
     } catch (error: any) {
-      // Tangkap error dan tampilkan pesannya
       setSubmitMessage({ type: 'error', text: error.message });
       setIsSubmitting(false);
     }
   };
 
-  // Fungsi untuk menutup modal dan mereset state pesan
   const handleClose = () => {
     setSubmitMessage({ type: '', text: '' });
     onClose();
@@ -61,7 +55,6 @@ export default function SubscribeModal({ isOpen, onClose }: SubscribeModalProps)
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={handleClose} data-cursor-trail-ignore="true">
-        {/* ... (Backdrop dan panel modal tetap sama seperti sebelumnya) ... */}
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
           <Dialog.Panel className="w-full max-w-md rounded-2xl bg-white p-6 sm:p-8 shadow-2xl">

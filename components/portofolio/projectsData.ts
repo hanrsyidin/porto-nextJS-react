@@ -17,8 +17,8 @@ export const projectsData: Project[] = [
     description: "Modern e-commerce platform for coockie sales, built with Next.js and Tailwind CSS for an optimal user experience.",
     technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     image: "/web1.png",
-    liveLink: "#",
-    githubLink: "#",
+    liveLink: "",
+    githubLink: "https://github.com/hanrsyidin/linkcookie",
   },
   // {
   //   id: 2,
@@ -37,7 +37,7 @@ export const projectsData: Project[] = [
     description: "An engaging 2D space adventure game developed with Unity, featuring various levels and challenges.",
     technologies: ["Unity", "C#"],
     image: "/game1.png",
-    githubLink: "#",
+    githubLink: "https://github.com/hanrsyidin/7-minutes-running",
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
     description: "SILAB (Laboratory Information System) is a web-based application designed to simplify laboratory management within a faculty environment. Its main features include account login (manually created by the admin), checking laboratory schedules, and booking laboratory rooms. The system is built using Laravel (Blade + Livewire) and uses MySQL as its database.",
     technologies: ["Laravel 12", "Breeze", "PHP", "Blade", "Tailwind CSS", "JavaScript"],
     image: "/web3.png",
-    githubLink: "https://github.com/hanrsyidin/porto-nextJS-react",
+    githubLink: "https://github.com/hanrsyidin/Silab",
   },
     {
     id: 7,
@@ -73,7 +73,7 @@ export const projectsData: Project[] = [
     description: "Islam Pedia is a web-based platform that provides Islamic content and information, such as articles, prayers, teachings, and history, aimed at educating and inspiring users about Islam.",
     technologies: ["CodeIgniter 4", "PHP", "CSS", "JavaScript"],
     image: "/web4.png",
-    githubLink: "https://github.com/hanrsyidin/porto-nextJS-react",
+    githubLink: "https://github.com/hanrsyidin/IslamPedia",
   },
     {
     id: 8,
@@ -82,7 +82,7 @@ export const projectsData: Project[] = [
     description: "A relaxing game where you make donuts based on incoming orders. The game features cute pixel art graphics that add charm to the experience.",
     technologies: ["Unity", "C#", "Aseprite"],
     image: "/game2.png",
-    githubLink: "#",
+    githubLink: "",
   },
 ];
 

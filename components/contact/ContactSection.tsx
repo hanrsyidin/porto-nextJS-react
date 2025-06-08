@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaTwitter, FaFacebookF, FaInstagram, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 import { IoIosSend } from "react-icons/io";
 import { fadeInUp, staggerContainer, staggerItem } from './animation';
@@ -74,8 +74,8 @@ const ContactSection = () => {
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               Have a question or need assistance? Reach out to me! 
-              I'm here to help with any inquiries you may have. 
-              Let's connect and discuss how we can work together.
+              I&apos;m here to help with any inquiries you may have. 
+              Let&apos;s connect and discuss how we can work together.
             </p>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-center">
@@ -92,14 +92,14 @@ const ContactSection = () => {
               </li>
             </ul>
             <div className="flex space-x-4">
-              <a href="#" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
-                <FaTwitter className="w-5 h-5" />
+              <a href="https://www.instagram.com/hanrsyidin/" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
+                <FaInstagram className="w-5 h-5" />
               </a>
-              <a href="#" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
+              <a href="https://www.facebook.com/ahmadfarhan.rasyidin" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
                 <FaFacebookF className="w-5 h-5" />
               </a>
               <a href="#" target="_blank" data-cursor-trail-ignore="true" rel="noopener noreferrer" className="text-gray-500 hover:text-zinc-800 transition-colors p-2 bg-white rounded-full shadow hover:shadow-md">
-                <FaInstagram className="w-5 h-5" />
+                <FaTwitter className="w-5 h-5" />
               </a>
             </div>
           </motion.div>

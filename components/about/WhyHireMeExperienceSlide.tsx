@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem } from './animation';
 import { experiences, educationItems, skillsData, TabKey } from './interface'
 

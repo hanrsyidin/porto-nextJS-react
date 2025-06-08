@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -9,9 +8,9 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'GitHub', icon: FaGithub, href: 'https://github.com/hanrsyidin' },
-    { name: 'LinkedIn', icon: FaLinkedin, href: 'https://linkedin.com/in/nama-anda' },
-    { name: 'Twitter', icon: FaTwitter, href: 'https://twitter.com/nama-anda' },
-    { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com/nama-anda' },
+    { name: 'LinkedIn', icon: FaLinkedin, href: 'https://www.linkedin.com/in/ahmadfarhanrasyidin/' },
+    { name: 'Twitter', icon: FaTwitter, href: 'https://twitter.com' },
+    { name: 'Instagram', icon: FaInstagram, href: 'https://instagram.com/hanrsyidin' },
   ];
 
   return (

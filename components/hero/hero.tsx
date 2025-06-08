@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, EffectFade } from 'swiper/modules';
 import SubscribeModal from './SubscribeModal';
@@ -66,10 +66,10 @@ const HeroSection = () => {
                 Currently, I serve as the Head of Academic Division at HMIF Unsri, actively leading various skill development programs.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
-                <Link href="#" data-cursor-trail-ignore="true" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-gray-300 text-base font-medium rounded-lg shadow-sm text-gray-800 bg-white hover:bg-zinc-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+                <Link href="#about" data-cursor-trail-ignore="true" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-gray-300 text-base font-medium rounded-lg shadow-sm text-gray-800 bg-white hover:bg-zinc-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
                   About Me <ArrowRightIcon data-cursor-trail-ignore="true" className="w-5 h-5 ml-2" />
                 </Link>
-                <Link href="#" data-cursor-trail-ignore="true" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">
+                <Link href="#contact" data-cursor-trail-ignore="true" className="inline-flex items-center justify-center px-6 py-3 sm:px-7 sm:py-3.5 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-zinc-800 hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600">
                   Contact
                 </Link>
               </div>

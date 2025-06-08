@@ -40,8 +40,11 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true, message: 'Message sent successfully!', data }, { status: 200 });
 
-  } catch (err: any) {
-    console.error('Error processing contact form:', err);
-    return NextResponse.json({ error: 'Error processing request.', details: err.message }, { status: 500 });
+  } catch (error) { 
+    if (error instanceof Error) {
+      console.error('Error processing contact form:', error);
+      return NextResponse.json({ error: 'Error processing request.', details: error.message }, { status: 500 });
+    }
+    return NextResponse.json({ error: 'An unknown error occurred.' }, { status: 500 });
   }
 }

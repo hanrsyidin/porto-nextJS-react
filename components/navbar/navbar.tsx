@@ -57,7 +57,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-[30px]">
             <NavLinkItem href="/">Home</NavLinkItem>
-            <NavLinkItem href="#about-resume-section">About</NavLinkItem>
+            <NavLinkItem href="#about">About</NavLinkItem>
             <NavLinkItem href="#portfolio">Portofolio</NavLinkItem>
             <NavLinkItem href="#contact">Contact</NavLinkItem>
             <NavLinkItem href="#comments">Comments</NavLinkItem>

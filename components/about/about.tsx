@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type SwiperCore from 'swiper';
-import { Navigation, Pagination, A11y, EffectFade } from 'swiper/modules';
+import { Navigation, A11y, EffectFade } from 'swiper/modules';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import WhyHireMeExperienceSlide from './WhyHireMeExperienceSlide';
 import { fadeInUp, staggerContainer, staggerItem } from './animation';
@@ -57,7 +57,7 @@ const About = () => {
 
   return (
     <section
-      id="about-resume-section"
+      id="about"
       className="py-16 md:py-24 shadow-sm bg-[url('/paper-background.png')] bg-cover bg-center relative scroll-mt-[20px] sm:scroll-mt-0"
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-10">
@@ -124,7 +124,7 @@ const About = () => {
                 initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }} variants={fadeInUp} transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <p>
-                  Hello! I'm Farhan Rasyidin, an Informatics Engineering student with a strong interest in web and game development. 
+                  Hello! I&apos;m Farhan Rasyidin, an Informatics Engineering student with a strong interest in web and game development. 
                   My journey into the world of technology began with a curiosity about how applications and games are made, which quickly blossomed into a passion for creating innovative and functional digital solutions.
                 </p>
                 <p>

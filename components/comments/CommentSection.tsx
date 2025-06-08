@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, FormEvent } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { IoIosSend } from 'react-icons/io';
 import { fadeInUp, staggerContainer, staggerItem } from './animation';
 import { CommentEntry } from './interface';
